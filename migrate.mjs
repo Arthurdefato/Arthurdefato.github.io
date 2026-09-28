@@ -1,0 +1,3 @@
+import fs from 'node:fs';import path from 'node:path';import {DatabaseSync} from 'node:sqlite';
+fs.mkdirSync('.sites-runtime',{recursive:true});const db=new DatabaseSync('.sites-runtime/preview.sqlite');db.exec('CREATE TABLE IF NOT EXISTS _local_migrations (name TEXT PRIMARY KEY)');
+for(const name of fs.readdirSync('drizzle').filter(n=>n.endsWith('.sql')).sort()){if(!db.prepare('SELECT name FROM _local_migrations WHERE name=?').get(name)){db.exec('BEGIN');try{db.exec(fs.readFileSync(path.join('drizzle',name),'utf8'));db.prepare('INSERT INTO _local_migrations VALUES (?)').run(name);db.exec('COMMIT');console.log('Applied '+name)}catch(error){db.exec('ROLLBACK');throw error}}}db.close();console.log('Local database ready.');

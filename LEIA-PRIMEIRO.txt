@@ -1,0 +1,15 @@
+T&T CONTABILIDADE
+
+1. Abra esta pasta no VS Code.
+2. Instale Node.js 24 LTS, se ainda nao estiver instalado.
+3. No terminal: node build.mjs
+4. No terminal: node preview.mjs
+5. Abra http://127.0.0.1:4173
+
+No Windows voce tambem pode abrir INICIAR-WINDOWS.cmd.
+
+Leia README.md para documentacao completa.
+O login local e simulado para testes. Emissao fiscal, eSocial,
+bancos, e-mail e WhatsApp exigem integracoes externas.
+
+A imagem de marca original esta em public/assets/marca-tt-original.png.
