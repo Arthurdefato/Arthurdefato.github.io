@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /area-cliente
+Disallow: /administracao
+Sitemap: https://arthurdefato.github.io/sitemap.xml
